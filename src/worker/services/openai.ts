@@ -120,6 +120,12 @@ export class OpenAIService {
    */
   async optimizeImage(imageUrl: string): Promise<string> {
     try {
+      // Check if IMAGES service is available
+      if (!this.env.IMAGES) {
+        console.log('IMAGES service not available, returning original URL');
+        return imageUrl;
+      }
+
       // Upload to Cloudflare Images for optimization
       const formData = new FormData();
       formData.append('url', imageUrl);

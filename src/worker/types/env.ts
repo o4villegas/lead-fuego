@@ -5,7 +5,7 @@ export interface Env {
   KV: KVNamespace;
   R2: R2Bucket;
   AI: Ai;
-  IMAGES: Fetcher;
+  IMAGES?: Fetcher;
   
   // Environment Variables
   ENVIRONMENT: string;

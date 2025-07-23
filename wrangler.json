@@ -23,12 +23,6 @@
       "bucket_name": "leadflare"
     }
   ],
-  "services": [
-    {
-      "binding": "IMAGES",
-      "service": "images"
-    }
-  ],
   "ai": {
     "binding": "AI"
   },
