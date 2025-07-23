@@ -46,11 +46,7 @@ function LoginPage() {
           <img 
             src={logo} 
             alt="LeadFuego" 
-            style={{ 
-              width: '120px', 
-              height: 'auto', 
-              marginBottom: '1rem' 
-            }} 
+            className="auth-logo"
           />
           <h1>Welcome Back</h1>
           <p>Sign in to your LeadFuego account</p>
@@ -118,7 +114,7 @@ function LoginPage() {
           </div>
 
           {error && (
-            <div style={{ color: 'var(--primary-600)', fontSize: '0.875rem', textAlign: 'center' }}>
+            <div className="auth-error">
               {error}
             </div>
           )}
@@ -170,10 +166,7 @@ function Dashboard() {
               <img 
                 src={logo} 
                 alt="LeadFuego" 
-                style={{ 
-                  width: '40px', 
-                  height: 'auto' 
-                }} 
+                className="dashboard-logo"
               />
               <h1 className="text-2xl font-bold text-primary">LeadFuego Dashboard</h1>
             </div>

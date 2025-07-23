@@ -34,46 +34,45 @@
 
 /* LeadFuego Modern CSS */
 :root {
-  /* Colors */
-  --primary-50: #fef2f2;
-  --primary-100: #fee2e2;
-  --primary-200: #fecaca;
-  --primary-300: #fca5a5;
-  --primary-400: #f87171;
-  --primary-500: #ef4444;
-  --primary-600: #dc2626;
-  --primary-700: #b91c1c;
-  --primary-800: #991b1b;
-  --primary-900: #7f1d1d;
+  /* Dark Mode with Neon Green Accents */
+  --primary-50: #ecfdf5;
+  --primary-100: #d1fae5;
+  --primary-500: #10f269;
+  --primary-600: #0ef261;
+  --primary-700: #059f3d;
   
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --gray-600: #4b5563;
-  --gray-700: #374151;
-  --gray-800: #1f2937;
-  --gray-900: #111827;
+  --gray-50: #0a0a0a;
+  --gray-100: #111111;
+  --gray-200: #1a1a1a;
+  --gray-300: #262626;
+  --gray-400: #404040;
+  --gray-500: #525252;
+  --gray-600: #737373;
+  --gray-700: #a3a3a3;
+  --gray-800: #d4d4d4;
+  --gray-900: #f5f5f5;
   
   --blue-500: #3b82f6;
-  --green-500: #10b981;
+  --green-500: #10f269;
   --purple-500: #8b5cf6;
   --orange-500: #f97316;
   --yellow-500: #eab308;
+  
+  /* Semantic Color Aliases for Consistency */
+  --background: var(--gray-100);
+  --foreground: var(--gray-900);
+  --card: var(--gray-200);
+  --muted-foreground: var(--gray-600);
+  --border: var(--gray-300);
   
   /* Spacing */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
-  --space-5: 1.25rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
   --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
   
   /* Sizes */
   --sidebar-width: 260px;
@@ -93,7 +92,6 @@
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 200ms ease-in-out;
-  --transition-slow: 300ms ease-in-out;
 }
 
 * {
@@ -104,7 +102,7 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--gray-50);
+  background-color: var(--gray-100);
   color: var(--gray-900);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -489,7 +487,8 @@ body {
 }
 
 .auth-container {
-  background: white;
+  background: var(--gray-200);
+  border: 1px solid var(--gray-300);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
   padding: var(--space-8);
@@ -513,6 +512,23 @@ body {
 
 .auth-header p {
   color: var(--gray-600);
+}
+
+.auth-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: var(--space-4);
+}
+
+.auth-error {
+  color: var(--primary-600);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.dashboard-logo {
+  width: 40px;
+  height: auto;
 }
 
 .auth-form {
@@ -615,7 +631,7 @@ body {
 .bg-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+  background: linear-gradient(135deg, var(--gray-50), var(--gray-100));
 }
 
 .bg-pattern {
@@ -1207,3 +1223,24 @@ body {
     max-width: none;
   }
 }
+
+
+/* Utility Classes for Semantic Colors */
+.bg-background { background-color: var(--background); }
+.bg-card { background-color: var(--card); }
+.bg-primary { background-color: var(--primary-600); }
+.bg-secondary { background-color: var(--gray-300); }
+
+.text-foreground { color: var(--foreground); }
+.text-muted-foreground { color: var(--muted-foreground); }
+.text-primary { color: var(--primary-600); }
+.text-destructive { color: var(--primary-600); }
+
+.border-border { border-color: var(--border); }
+.border-b { border-bottom-width: 1px; }
+
+.text-2xl { font-size: 1.5rem; }
+.text-lg { font-size: 1.125rem; }
+.text-sm { font-size: 0.875rem; }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }

@@ -16,7 +16,7 @@ INSERT INTO users (
 ) VALUES (
     'admin-001',
     'admin',
-    '$2a$10$rGNWwBmDj5lObQzXz6pPjuMKVhRGXcGqFJNyoLY0aUNnJ2Hxb2mK2', -- bcrypt hash of 'admin123'
+    'JAvlGPq9JyTdtvBO6x2llnRI1+gxwIyPqCKAn3THIKk=', -- SHA-256 hash of 'admin123'
     'Admin',
     'User',
     'LeadFuego',
