@@ -4,6 +4,40 @@
   "main": "./src/worker/index.ts",
   "compatibility_date": "2025-04-01",
   "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "leadfire-dev",
+      "database_id": "4929a252-9c66-4375-8dbf-6a09182405bf"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "1946c9d052f94bf9abfb45ac97d0485e"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "R2",
+      "bucket_name": "leadflare"
+    }
+  ],
+  "services": [
+    {
+      "binding": "IMAGES",
+      "service": "images"
+    }
+  ],
+  "ai": {
+    "binding": "AI"
+  },
+  "vars": {
+    "ENVIRONMENT": "production",
+    "JWT_SECRET": "pM8nrK3vX9wL5qT2hJ7fA4gS6dR1",
+    "WEBHOOK_SECRET": "wH4kS8nL2pQ9vX3mT7jF5aR6gD1",
+    "ENCRYPTION_KEY": "eK9sH3mW7vL4pQ2nT8jF5xA1rG6"
+  },
   "observability": {
     "enabled": true
   },

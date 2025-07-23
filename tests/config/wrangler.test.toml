@@ -1,0 +1,37 @@
+# Cloudflare Workers Test Configuration
+# This is separate from production wrangler.toml to avoid conflicts
+
+name = "leadfuego-test"
+main = "./tests/integration/test-worker.ts"
+compatibility_date = "2025-04-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Test environment variables
+[env.test.vars]
+ENVIRONMENT = "test"
+DEBUG_MODE = "true"
+LOG_LEVEL = "debug"
+
+# Test D1 Database (separate from production)
+[[env.test.d1_databases]]
+binding = "TEST_DB"
+database_name = "leadfuego-test-db"
+database_id = "test"  # Will be replaced with actual test DB ID
+
+# Test KV for caching (optional)
+[[env.test.kv_namespaces]]
+binding = "TEST_CACHE"
+id = "test_cache_id"  # Will be replaced with actual test KV ID
+
+# Test Queue for async processing (optional)  
+[[env.test.queues]]
+binding = "TEST_QUEUE"
+queue = "leadfuego-test-queue"
+
+# Observability for test monitoring
+[env.test.observability]
+enabled = true
+
+# Test-specific limits (more restrictive to prevent runaway costs)
+[env.test.limits]
+cpu_ms = 30000  # 30 seconds max for integration tests
