@@ -103,14 +103,14 @@ class Logger {
     }
   }
 
-  private async sendToExternalService(entry: LogEntry) {
+  private async sendToExternalService(_entry: LogEntry) {
     // TODO: Integrate with external logging service (e.g., Sentry, DataDog)
     // For now, just store in console
     try {
       // Example: Send to webhook endpoint or logging service
       // await fetch('/api/logs', {
       //   method: 'POST',
-      //   body: JSON.stringify(entry)
+      //   body: JSON.stringify(_entry)
       // });
     } catch (error) {
       console.error('Failed to send log to external service:', error);
@@ -144,7 +144,7 @@ class Logger {
     
     return () => {
       const duration = Date.now() - startTime;
-      this.info(`Timer completed: ${label}`, context, undefined, duration);
+      this.log(LogLevel.INFO, `Timer completed: ${label}`, context, undefined, duration);
     };
   }
 
@@ -250,15 +250,11 @@ class Logger {
 }
 
 // Global logger instance
-export const logger = new Logger(
-  process.env.NODE_ENV === 'production' ? LogLevel.INFO : LogLevel.DEBUG
-);
+export const logger = new Logger(LogLevel.INFO);
 
 // Request-scoped logger factory
 export function createRequestLogger(requestId: string): Logger {
-  const requestLogger = new Logger(
-    process.env.NODE_ENV === 'production' ? LogLevel.INFO : LogLevel.DEBUG
-  );
+  const requestLogger = new Logger(LogLevel.INFO);
   requestLogger.setRequestId(requestId);
   return requestLogger;
 }
